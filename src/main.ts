@@ -7,8 +7,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   const options = new DocumentBuilder()
-    .setTitle('Login Project')
-    .setDescription('The Join Us API description')
+    .setTitle('Signup & Login Project API')
+    .setDescription('API description')
     .setVersion('Version 1.0 Closed Beta')
     .build();
   const document = SwaggerModule.createDocument(app, options);

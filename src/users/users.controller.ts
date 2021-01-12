@@ -23,6 +23,7 @@ export class UsersController {
     @Post()
     @UsePipes(new ValidationPipe({transform: true}))
     async createUser(@Body() body: UserCreateDto): Promise<UserModel> {
+        body.password = await this.userService.convertToHash(body.password);
         return await this.userService.create(body);
     }
 
