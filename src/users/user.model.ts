@@ -12,6 +12,6 @@ export class UserModel extends mongoose.Document {
 
 export const UserSchema = new mongoose.Schema({
     username: String,
-    email: String,
+    email: { type : String , unique : true, required : true, dropDups: true },
     password: String,
 });

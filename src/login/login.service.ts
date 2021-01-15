@@ -33,20 +33,17 @@ export class LoginService {
           });
 
         if (checkPwd) {
-          return await { success: true, value: existUser };
+          return await { success: true, response: 'Login successfully! ' + 'Welcome ' + existUser.username, value: existUser };
         } else {
-          return await {
-            success: false,
-            response: 'user password is incorrect!',
-          };
+          return await {success: false, response: 'User password is incorrect!',};
         }
       } else {
-        return await { success: false, response: 'user does not exist!' };
+        return await { success: false, response: 'User does not exist! Please be REGİSTER!' };
       }
     } catch (ex) {
       return await {
         success: false,
-        response: 'something went wrong while login process!',
+        response: 'Something went wrong while login process!',
         exception: ex,
       };
     }
